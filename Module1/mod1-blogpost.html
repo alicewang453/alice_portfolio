@@ -9,7 +9,8 @@
 <body>
     <article class="blog-post">
         <header class="blog-post-header">
-            <h1>Valentine's Day ESP32 Installation</h1>
+            <h1>He loves me, He loves me not ... :/</h1>
+            <p>Valentine's Day ESP32 Installation</p>
             <div class="post-meta">
                 <span>February 14, 2024</span>
             </div>
@@ -19,20 +20,25 @@
             <figcaption>An interactive Valentine's Day project using ESP32.</figcaption>
         </figure>
         <section class="blog-post-content">
-            <p>This Valentine's Day, we took the celebration to the next level by integrating love with technology. Our project, an ESP32 installation, illuminates LED lights in sync with heartbeats, capturing the essence of connection and affection.</p>
-            <p>The installation uses an ESP32 microcontroller to detect heartbeat signals through a pulse sensor. When a heartbeat is detected, a series of LEDs light up, creating a visual representation of the heart's rhythm. It's not just an electronic project; it's a fusion of technology, art, and emotion.</p>
-            <h2>How We Built It</h2>
-            <p>The project required careful planning and execution. Here's a brief overview of our process:</p>
+            <p>The installation uses a TTGO T1 display board with built-in ESP32 microcontroller to simulate the game "he loves me, he loves me not." Flowers are generated with a random number of petals, and petals are "picked off" one-by-one. As each petal disappears, a corresponding message of "he loves me" or "he loves me not" flashes on the screen, culminating in a final answer when the last petal is picked off. </p>
+            
+            <h2>Creative Process:</h2>
+            <p>I originally thought of making something that would be cute for Valentine’s Day (the day of the installation). I considered making a heart that would get bigger, or a heart getting shot by Cupid’s arrow. In both scenarios though, I realized I always pictured the heart exploding after the heart got too big or was shot. Evidently, I wanted to do something a little less cute, a little more subversive of the theme, so I decided to lean into that.</p>
+            <p>I settled on the trope of picking petals off a flower, where each petal represents either “he loves me” or “he loves me not” and the last petal you pick gives you your answer. It really stood out to me how picking petals off flowers is a destructive act, and I wanted to explore the possible internal destruction that occurs as well. For example:</p>
             <ul>
-                <li>Designing the circuit layout and selecting components.</li>
-                <li>Programming the ESP32 to read heartbeat signals.</li>
-                <li>Creating a responsive LED lighting system.</li>
-                <li>Assembling the components and testing the installation.</li>
+                <li>What happens internally when you get the answer that “he” (or whoever) loves you, and what happens internally when you get the answer that they don’t?</li>
+                <li>Trope-wise, it’s a process that is often repeated, perhaps to obtain a certain answer or perhaps because it’s hard to stop once you start. What’s happening internally for someone to do this process more than once?</li>
+                <li>What do these completely random processes have to offer us in terms of reassurance/answers/courage, and why do we feel we need it?</li>
             </ul>
-            <p>For those interested in creating something similar, we've shared the code and schematics on our GitHub. This project is a testament to the power of technology to express human emotions and connect us in new and exciting ways.</p>
+        
+            <h2>Execution:</h2>
+            <p>The number of petals for each flower is generated randomly, while the initial petal always has the corresponding message of "__ loves me." This way, the final answer is random. The options are also random—either he loves, she loves, they love, or I love—to be inclusive and consider different kinds of love. When all petals have been “picked” off, the final answer given is flashed in large font over the screen, which I personally think gives a slightly disconcerting feel.</p>
+            <p>As for the envelope, I drew it to be the Yoshi mini game “Loves me …?” from the 2004 Super Mario 64 DS game. It adds a nostalgic feeling to the installation, and it goes to show how omnipresent this trope is. I also really like the ending screen of the game, as it’s also very disconcerting, especially if the answer is “loves me not.”</p>
+        
+            <!-- Continue with any additional content or the footer -->            
         </section>
         <footer class="blog-post-footer">
-            <p>Thank you for reading! If you enjoyed this project, follow us for more tech-inspired installations.</p>
+            <p>Thank you for reading!</p>
         </footer>
     </article>
 </body>
