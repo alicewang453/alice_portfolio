@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Modern Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-    <header>
-        <h1>My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#work">My Work</a></li>
-                <li><a href="blogpost.html">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a web developer with a passion for front-end technologies and design. I create responsive, accessible websites and applications that provide meaningful and engaging user experiences.</p>
-    </section>
-    <section id="work">
-        <h2>My Work</h2>
-        <!-- Add your projects here -->
-        <div class="project">
-            <h3>Project Title</h3>
-            <p>Project description...</p>
+    <header class="site-header">
+        <div class="container header-content">
+            <h1>My Portfolio</h1>
+            <nav class="main-nav">
+                <ul>
+                    <!-- <li><a href="#about">About Me</a></li> -->
+                    <li><a href="#blogposts">Work</a></li>
+                    <!-- <li><a href="mod1-blogpost.html">Blog</a></li> -->
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- Repeat for other projects -->
-    </section>
-    <footer id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to <a href="mailto:your.email@example.com">email me</a> or find me on <a href="#">social media</a>.</p>
+    </header>
+    <main>
+        <!-- <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p></p>
+            </div>
+        </section> -->
+        <section id="blogposts" class="blogpost-section">
+            <div class="container">
+                <h2>My Work</h2>
+                <div class="project-grid">
+                    <a href="/Module1/mod1-blogpost.html" class="project-link">
+                        <div class="project">
+                            <h3>Coms3930 Module 1</h3>
+                            <p>Valentine's Day ESP32 Installation</p>
+                        </div>
+                    </a>
+                    <!-- Repeat for other projects -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Feel free to <a href="mailto:your.email@example.com">email me</a> or find me on <a href="#">social media</a>.</p>
+        </div>
     </footer>
 </body>
 </html>
