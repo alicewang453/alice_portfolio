@@ -3,7 +3,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background: #f9f9f9;
+    background-image: url('yoshi-2.png');
+    background-size: cover;
     color: #333;
 }
 
@@ -18,15 +19,6 @@ body {
 
 .blog-post-header h1 {
     margin-bottom: 0.5em;
-}
-
-.blog-post-header {
-    background-image: url('yoshi.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    padding: 20px; /* Adjust as needed */
-    color: #fff; /* Adjust text color as needed */
 }
 
 .post-meta {
