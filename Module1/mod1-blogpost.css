@@ -20,6 +20,15 @@ body {
     margin-bottom: 0.5em;
 }
 
+.blog-post-header {
+    background-image: url('yoshi.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: 20px; /* Adjust as needed */
+    color: #fff; /* Adjust text color as needed */
+}
+
 .post-meta {
     color: #666;
     margin-bottom: 2em;
