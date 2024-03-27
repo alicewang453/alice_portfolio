@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Generative Art Installation</title>
+    <!-- <link rel="stylesheet" href="mod1-blogpost.css"> -->
+</head>
+<body>
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1>He loves me, He loves me not ... :/</h1>
+            <p>Valentine's Day TTGO-T1 Generative Art Installation</p>
+            <div class="post-meta">
+                <span>February 14, 2024</span>
+            </div>
+        </header>
+        <figure class="blog-post-image">
+            <p><a href="https://youtu.be/CZQVoNPNOmM" target="_blank" rel="noopener noreferrer">Link to video of display</a></p>
+            <p><a href="https://youtube.com/shorts/naCRY1zjbVs?feature=share" target="_blank" rel="noopener noreferrer">Link to video of display installation</a></p>
+            <p><a href="https://github.com/alicewang453/module1/tree/main" target="_blank" rel="noopener noreferrer">Link to Github repo. Features code and technical process via ReadMe.</a></p>
+        </figure> 
+        <section class="blog-post-content">
+            <p>The installation uses a TTGO T1 display board with built-in ESP32 microcontroller to simulate the game "he loves me, he loves me not." Flowers are generated with a random number of petals, and petals are "picked off" one-by-one. As each petal disappears, a corresponding message of 
+                “[he, she, they, I] loves me” or “[he, she, they, I] loves me not” is shown on the screen, culminating in a final answer when the last petal is picked off. </p>
+            
+<!--             <p><a href="https://github.com/alicewang453/module1/tree/main" target="_blank" rel="noopener noreferrer">Link to GitHub repo. Features code and technical process via ReadMe.</a></p> -->
+            <h2>Creative Process:</h2>
+            <p>I originally thought of making something that would be cute for Valentine’s Day (the day of the installation). I considered making a heart that would get bigger, or a heart getting shot by Cupid’s arrow. In both scenarios though, I realized I always pictured the heart exploding after the heart got too big or was shot. Evidently, I wanted to do something a little less cute, a little more subversive of the theme, so I decided to lean into that.</p>
+            <p>I settled on the trope of picking petals off a flower, where each petal represents either “he loves me” or “he loves me not” and the last petal you pick gives you your answer. It really stood out to me how picking petals off flowers is a destructive act, and I wanted to explore the possible internal destruction that occurs as well. For example:</p>
+            <ul>
+                <li>What happens internally when you get the answer that “he” (or whoever) loves you, and what happens internally when you get the answer that they don’t?</li>
+                <li>Trope-wise, it’s a process that is often repeated, perhaps to obtain a certain answer or perhaps because it’s hard to stop once you start. What’s happening internally for someone to do this process more than once?</li>
+                <li>What do these completely random processes have to offer us in terms of reassurance/answers/courage, and why do we feel we need it?</li>
+            </ul>
+        
+            <h2>Execution:</h2>
+            <p>The number of petals for each flower is generated randomly, while the initial petal always has the corresponding message of "__ loves me." This way, the final answer is random. The options are also random—either he loves, she loves, they love, or I love—to be inclusive and consider different kinds of love. When all petals have been “picked” off, the final answer given is flashed in large font over the screen, which I personally think gives a slightly disconcerting feel.</p>
+            <p>As for the envelope, I drew it to be the Yoshi mini game “Loves me …?” from the 2004 Super Mario 64 DS game. It adds a nostalgic feeling to the installation demonstrates how omnipresent this trope is. I also really like the ending screen of the game, as it’s also very disconcerting, especially if the answer is “loves me not.”</p>
+
+            <p>The main technical challenge of this project was figuring out how to draw the petals. Ellipses seemed like an obvious choice for the petal shape, but the TFT's library function fillEllipse doesn't allow for the ellipses to be drawn rotated on an angle. The ellipses are vertical or horizontal, with no in-between. Instead, I took the route of drawing multiple circles at an offset to make up each petal. Then, to remove each petal, the same draw function is called with the color black as the parameter to essentially draw over the petal.
+            Then, another issue came up of how many petals needed to be on the screen in order for the petals to look realistic, not just offset lines of circles. Especially since my installation relies on a randomly generated number of petals, it was important to figure out the minimum and maximum amount of petals that would still look good. This mainly took trial and error, and I settled on having a minimum of 6 petals and a maximum, inclusive, of 11 petals. </p>     
+        </section>
+        <footer class="blog-post-footer">
+            <p>Thank you for reading!</p>
+        </footer>
+    </article>
+</body>
+</html>
+
