@@ -3,56 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Generative Art Installation</title>
+    <title>Grow Your Own Pixel Plant</title>
     <link rel="stylesheet" href="mod2-blogpost.css">
+
 </head>
 <body>
     <article class="blog-post">
         <header class="blog-post-header">
-            <h1>He loves me, He loves me not ... :/</h1>
-            <p>Valentine's Day TTGO-T1 Generative Art Installation</p>
+            <h1>Grow Your Own Pixel Plant</h1>
+            <p>Sensors and WebSerial Project</p>
             <div class="post-meta">
-                <span>February 14, 2024</span>
+                <span>March 28, 2024</span>
             </div>
         </header>
         <figure class="blog-post-image">
-            <p><a href="https://youtu.be/CZQVoNPNOmM" target="_blank" rel="noopener noreferrer">Link to video of display</a></p>
-            <p><a href="https://youtube.com/shorts/naCRY1zjbVs?feature=share" target="_blank" rel="noopener noreferrer">Link to video of display installation</a></p>
-            <p><a href="https://github.com/alicewang453/module1/tree/main" target="_blank" rel="noopener noreferrer">Link to Github repo. Features code and technical process via ReadMe.</a></p>
+            <p><a href="https://youtube.com/shorts/YpK-Mazb7p0" target="_blank" rel="noopener noreferrer">Link to game demonstration.</a></p>
+            <p><a href="https://github.com/alicewang453/module2" target="_blank" rel="noopener noreferrer">Link to Github repo. Features code and technical process via ReadMe.</a></p>
         </figure> 
         <section class="blog-post-content">
+            <h2>Description:</h2>
+
             <p>For those currently without the space or capacity for real-life plants, this project offers a virtual plant. By interacting with hardware components that directly influence your virtual plant&apos;s growth, you can nurture your plant and receive satisfaction from seeing it grow! This can also be a stepping stone to a future real-life plant, as you can get in the habit of taking care of one. </p>
             <p>In terms of hardware, this project primarily uses a TTGO T1 display board with built-in ESP32 microcontroller, a button, and a potentiometer. For software, I used the Python library Pygame to render the game environment, which features the pot of the plant, a watering unit, and curtains in the background.  Pressing the button waters the plant, and toggling the potentiometer affects how closed/open the background curtains are. </p>
-<!--             <p><a href="https://github.com/alicewang453/module1/tree/main" target="_blank" rel="noopener noreferrer">Link to GitHub repo. Features code and technical process via ReadMe.</a></p> -->
             
-            <!-- insert pic of screen -->
+            <!-- <div class="text-center">
+                <img src="flowergame_screen.png" alt="Virtual Plant Image" width="400">
+            </div> -->
+            <!-- <p>Below is an example picture of the screen. As you can see, there is also a count of how many game days have passed since the start of the game (the genesis of the plant), as well as a status indicator on whether the plant has been watered today. There are also instructions for keyboard interactions the user can do. </p>
+            <img src="flowergame_screen.png" alt="Virtual Plant Image" width="400" style="display: block; margin: auto;"> -->
+
+            <figure style="text-align: center;">
+                <img src="flowergame_screen.png" alt="Virtual Plant Image" width="400">
+                <figcaption>An example picture of the screen. There is also a count of how many game days have passed since the start of the game, as well as a status indicator on whether the plant has been watered today. There are also instructions for keyboard interactions the user can do. </figcaption>
+            </figure>
 
             <h2>Game Mechanics (Plant Care and Growth):</h2>
             <p>Plant growth relies on 2 factors: whether it has been watered “today”, and whether the curtains are in an optimal range. The optimal range for the curtains is unknown to the user, encouraging the user to guess and check. This encourages more interaction and is also more realistic to plant care. If both requirements are met, the plant grows, and this growth is simulated the next “day” within the game. Otherwise, if one or both conditions were not met, consequences based on the missing conditions occur: the plant shrinks a certain amount the next day, and the color of the plant might change to a light gray.             </p>
             
             <h2>Creative Decisions:</h2>
-            <p>Importantly, I programmed the game to have a mechanism where the passage of time affects the plant's condition, even when the game isn't actively running.  By tracking the last load time and calculating the elapsed in-game days from that, I create a sense of continuous time, reflecting the result in the day counter and in the plant’s condition. This approach enhances the realism of plant care in the game, encouraging users to regularly return and engage with their virtual plant.             </p>
-            <p>I also made the game so that when you reach certain levels of plant height, leaves sprout, but when the plant shrinks below those levels, the leaves disappear.             </p>
+            <p>Importantly, I programmed the game to have a mechanism where the passage of time affects the plant's condition, even when the game isn't actively running.  By tracking the last load time and calculating the elapsed in-game days from that, I create a sense of continuous time, reflecting the result in the day counter and in the plant’s condition. This approach enhances the realism of plant care in the game, encouraging users to regularly return and engage with their virtual plant. </p>
+            <p>I currently have the time running so that each minute counts as a day within the game. I also have it so that the check for whether the plant should grow or decay is at the start of each new "day." This was done so that plant growth could be seen in faster time. However, I'm thinking for future work that I could change it so that a day in the game is an actual day in real life, and the check of whether a plant's conditions have been met or not could happen at the start of a new week. This could give a lot more realism. </p>
+            <p>I also decided to include keyboard events, namely pressing the 's' key to skip to the next day, so that the user could immediately see the effect of the plant's conditions on the plant's growth, as well as pressing the 'r' key to reset the entire game.</p>
+            <p>Visually, I made the game so that when you reach certain levels of plant height, leaves sprout, but when the plant shrinks below those levels, the leaves disappear.             </p>
             
-            <!-- insert pic of leaves?  -->
-            
-            <!-- <ul>
-                <li>What happens internally when you get the answer that “he” (or whoever) loves you, and what happens internally when you get the answer that they don&apos;t?</li>
-                <li>Trope-wise, it&apos;s a process that is often repeated, perhaps to obtain a certain answer or perhaps because it&apos;s hard to stop once you start. What&apos;s happening internally for someone to do this process more than once?</li>
-                <li>What do these completely random processes have to offer us in terms of reassurance/answers/courage, and why do we feel we need it?</li>
-            </ul>
-        
-            <h2>Execution:</h2>
-            <p>The number of petals for each flower is generated randomly, while the initial petal always has the corresponding message of "__ loves me." This way, the final answer is random. The options are also random—either he loves, she loves, they love, or I love—to be inclusive and consider different kinds of love. When all petals have been “picked” off, the final answer given is flashed in large font over the screen, which I personally think gives a slightly disconcerting feel.</p>
-            <p>As for the envelope, I drew it to be the Yoshi mini game “Loves me …?” from the 2004 Super Mario 64 DS game. It adds a nostalgic feeling to the installation demonstrates how omnipresent this trope is. I also really like the ending screen of the game, as it’s also very disconcerting, especially if the answer is “loves me not.”</p> -->
-
-            <p>The main technical challenge of this project was figuring out how to draw the petals. Ellipses seemed like an obvious choice for the petal shape, but the TFT's library function fillEllipse doesn't allow for the ellipses to be drawn rotated on an angle. The ellipses are vertical or horizontal, with no in-between. Instead, I took the route of drawing multiple circles at an offset to make up each petal. Then, to remove each petal, the same draw function is called with the color black as the parameter to essentially draw over the petal.
-            Then, another issue came up of how many petals needed to be on the screen in order for the petals to look realistic, not just offset lines of circles. Especially since my installation relies on a randomly generated number of petals, it was important to figure out the minimum and maximum amount of petals that would still look good. This mainly took trial and error, and I settled on having a minimum of 6 petals and a maximum, inclusive, of 11 petals. </p>     
+            <h2>Technical Challenge:</h2>
+            <p>The main technical challenge was programming the internal timing of the game. I made two global variables, a dict named game_state and a date time named start_time, which recorded the start time of the game. I made several functions that operated around game_state, such as initialize_game_state(), load_game_state(), and save_game_state(), all of which have pretty straightforward functionality. I also made a function update_day_counter() that checked the current time of the game and the start time to calculate how many internal days have elapsed. </p>
+            <p>Implementing these mechanics helped with the internal timing of the system. However, I still had a big issue with coordinating when to update the plant growth, as the function update_plant_growth() was getting called too quickly. I originally called the function before calling my draw function, both within the main loop, as I thought this would mean the plant would always be accurate. However, it made more sense if the plant changed upon the start of a new day, so that the changes could be grouped together. I discovered that if I called the function only within the update_day_counter() function and only when a new day has elapsed, then I could prevent this issue and keep the checking of the plant’s conditions at a regular time - at the start of a new day.</p>
         </section>
         <footer class="blog-post-footer">
             <p>Thank you for reading!</p>
         </footer>
     </article>
+
 </body>
 </html>
 

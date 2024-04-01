@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-image: url(yoshi-2.png);
+    background-image: url('plant.jpeg');
     background-size: cover;
     color: #333;
 }
@@ -19,7 +19,8 @@ body {
 
 .blog-post-header h1 {
     margin-bottom: 0.5em;
-    color: rgb(255, 153, 0)
+    color: rgb(144, 161, 185);
+
 }
 
 .post-meta {
@@ -39,7 +40,7 @@ body {
 }
 
 .blog-post-content h2 {
-    color: #09b100;
+    color: rgb(182, 133, 128);
 }
 
 .blog-post-content p,
