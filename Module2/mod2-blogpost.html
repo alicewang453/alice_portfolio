@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day Generative Art Installation</title>
-    <!-- <link rel="stylesheet" href="mod1-blogpost.css"> -->
+    <link rel="stylesheet" href="mod2-blogpost.css">
 </head>
 <body>
     <article class="blog-post">
@@ -21,22 +21,30 @@
             <p><a href="https://github.com/alicewang453/module1/tree/main" target="_blank" rel="noopener noreferrer">Link to Github repo. Features code and technical process via ReadMe.</a></p>
         </figure> 
         <section class="blog-post-content">
-            <p>The installation uses a TTGO T1 display board with built-in ESP32 microcontroller to simulate the game "he loves me, he loves me not." Flowers are generated with a random number of petals, and petals are "picked off" one-by-one. As each petal disappears, a corresponding message of 
-                “[he, she, they, I] loves me” or “[he, she, they, I] loves me not” is shown on the screen, culminating in a final answer when the last petal is picked off. </p>
-            
+            <p>For those currently without the space or capacity for real-life plants, this project offers a virtual plant. By interacting with hardware components that directly influence your virtual plant&apos;s growth, you can nurture your plant and receive satisfaction from seeing it grow! This can also be a stepping stone to a future real-life plant, as you can get in the habit of taking care of one. </p>
+            <p>In terms of hardware, this project primarily uses a TTGO T1 display board with built-in ESP32 microcontroller, a button, and a potentiometer. For software, I used the Python library Pygame to render the game environment, which features the pot of the plant, a watering unit, and curtains in the background.  Pressing the button waters the plant, and toggling the potentiometer affects how closed/open the background curtains are. </p>
 <!--             <p><a href="https://github.com/alicewang453/module1/tree/main" target="_blank" rel="noopener noreferrer">Link to GitHub repo. Features code and technical process via ReadMe.</a></p> -->
-            <h2>Creative Process:</h2>
-            <p>I originally thought of making something that would be cute for Valentine’s Day (the day of the installation). I considered making a heart that would get bigger, or a heart getting shot by Cupid’s arrow. In both scenarios though, I realized I always pictured the heart exploding after the heart got too big or was shot. Evidently, I wanted to do something a little less cute, a little more subversive of the theme, so I decided to lean into that.</p>
-            <p>I settled on the trope of picking petals off a flower, where each petal represents either “he loves me” or “he loves me not” and the last petal you pick gives you your answer. It really stood out to me how picking petals off flowers is a destructive act, and I wanted to explore the possible internal destruction that occurs as well. For example:</p>
-            <ul>
-                <li>What happens internally when you get the answer that “he” (or whoever) loves you, and what happens internally when you get the answer that they don’t?</li>
-                <li>Trope-wise, it’s a process that is often repeated, perhaps to obtain a certain answer or perhaps because it’s hard to stop once you start. What’s happening internally for someone to do this process more than once?</li>
+            
+            <!-- insert pic of screen -->
+
+            <h2>Game Mechanics (Plant Care and Growth):</h2>
+            <p>Plant growth relies on 2 factors: whether it has been watered “today”, and whether the curtains are in an optimal range. The optimal range for the curtains is unknown to the user, encouraging the user to guess and check. This encourages more interaction and is also more realistic to plant care. If both requirements are met, the plant grows, and this growth is simulated the next “day” within the game. Otherwise, if one or both conditions were not met, consequences based on the missing conditions occur: the plant shrinks a certain amount the next day, and the color of the plant might change to a light gray.             </p>
+            
+            <h2>Creative Decisions:</h2>
+            <p>Importantly, I programmed the game to have a mechanism where the passage of time affects the plant's condition, even when the game isn't actively running.  By tracking the last load time and calculating the elapsed in-game days from that, I create a sense of continuous time, reflecting the result in the day counter and in the plant’s condition. This approach enhances the realism of plant care in the game, encouraging users to regularly return and engage with their virtual plant.             </p>
+            <p>I also made the game so that when you reach certain levels of plant height, leaves sprout, but when the plant shrinks below those levels, the leaves disappear.             </p>
+            
+            <!-- insert pic of leaves?  -->
+            
+            <!-- <ul>
+                <li>What happens internally when you get the answer that “he” (or whoever) loves you, and what happens internally when you get the answer that they don&apos;t?</li>
+                <li>Trope-wise, it&apos;s a process that is often repeated, perhaps to obtain a certain answer or perhaps because it&apos;s hard to stop once you start. What&apos;s happening internally for someone to do this process more than once?</li>
                 <li>What do these completely random processes have to offer us in terms of reassurance/answers/courage, and why do we feel we need it?</li>
             </ul>
         
             <h2>Execution:</h2>
             <p>The number of petals for each flower is generated randomly, while the initial petal always has the corresponding message of "__ loves me." This way, the final answer is random. The options are also random—either he loves, she loves, they love, or I love—to be inclusive and consider different kinds of love. When all petals have been “picked” off, the final answer given is flashed in large font over the screen, which I personally think gives a slightly disconcerting feel.</p>
-            <p>As for the envelope, I drew it to be the Yoshi mini game “Loves me …?” from the 2004 Super Mario 64 DS game. It adds a nostalgic feeling to the installation demonstrates how omnipresent this trope is. I also really like the ending screen of the game, as it’s also very disconcerting, especially if the answer is “loves me not.”</p>
+            <p>As for the envelope, I drew it to be the Yoshi mini game “Loves me …?” from the 2004 Super Mario 64 DS game. It adds a nostalgic feeling to the installation demonstrates how omnipresent this trope is. I also really like the ending screen of the game, as it’s also very disconcerting, especially if the answer is “loves me not.”</p> -->
 
             <p>The main technical challenge of this project was figuring out how to draw the petals. Ellipses seemed like an obvious choice for the petal shape, but the TFT's library function fillEllipse doesn't allow for the ellipses to be drawn rotated on an angle. The ellipses are vertical or horizontal, with no in-between. Instead, I took the route of drawing multiple circles at an offset to make up each petal. Then, to remove each petal, the same draw function is called with the color black as the parameter to essentially draw over the petal.
             Then, another issue came up of how many petals needed to be on the screen in order for the petals to look realistic, not just offset lines of circles. Especially since my installation relies on a randomly generated number of petals, it was important to figure out the minimum and maximum amount of petals that would still look good. This mainly took trial and error, and I settled on having a minimum of 6 petals and a maximum, inclusive, of 11 petals. </p>     
